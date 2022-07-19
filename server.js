@@ -2,6 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import { engine } from 'express-handlebars'
 
+import registerRoutes from './routes/register.routes.js'
+
 const app = express()
 app.use(cors())
 app.use(express.json())
@@ -13,7 +15,7 @@ app.set('views', './views')
 
 app.use(express.static('public'))
 
-
+app.use(registerRoutes)
 
 app.listen(8080, () => {
     console.log(`Server started on http://localhost:8080`);
